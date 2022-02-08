@@ -34,7 +34,7 @@ const homeRouter = require("./routes/home");
 app.use("/vacs", homeRouter);
 
 // Starting the server
-https.createServer(options, app).listen(443, () => {
+var server = https.createServer(options, app).listen(443, "0.0.0.0", () => {
   console.log("listening on port 443");
 });
 
