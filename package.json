@@ -1,0 +1,29 @@
+{
+  "name": "vacs-express",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "dotenv": "^16.0.0",
+    "express": "^4.17.2",
+    "lodash": "^4.17.21",
+    "nodemon": "^2.0.15",
+    "request": "^2.88.2",
+    "swagger-autogen": "^2.18.8",
+    "swagger-ui-express": "^4.3.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/applock/VACS-Express.git"
+  },
+  "author": "iman",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/applock/VACS-Express/issues"
+  },
+  "homepage": "https://github.com/applock/VACS-Express#readme"
+}
