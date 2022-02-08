@@ -6,8 +6,8 @@ const endpointsFiles = ["./routes/*"];
 const doc = {
   info: {
     version: "1.0.0",
-    title: "Start-Up India API",
-    description: "Start-Up India API Documentation",
+    title: "Vajra Access Control System API",
+    description: "Vajra Access Control System API Documentation",
   },
   host: "localhost:443",
   basePath: "/",
