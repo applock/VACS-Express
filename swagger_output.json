@@ -1,0 +1,35 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "1.0.0",
+    "title": "Start-Up India API",
+    "description": "Start-Up India API Documentation"
+  },
+  "host": "localhost:443",
+  "basePath": "/",
+  "schemes": [
+    "https"
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "/v1/control/barrier": {
+      "get": {
+        "tags": [
+          "Barrier Controller"
+        ],
+        "description": "Controls barrier gate",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    }
+  }
+}
