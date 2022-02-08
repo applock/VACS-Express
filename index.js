@@ -14,7 +14,7 @@ var options = {
 };
 
 // Allow the following IPs
-const ips = ["127.0.0.1"];
+const ipv4_ips = ["127.0.0.1"];
 
 // defining the Express app
 const app = express();
@@ -27,7 +27,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 // IP Whitelisting security
-app.use(ipfilter(ips, { mode: "allow" }));
+app.use(ipfilter(ipv4_ips, { mode: "allow" }));
 
 // Router and routes
 const homeRouter = require("./routes/home");
@@ -38,6 +38,10 @@ var server = https.createServer(options, app).listen(443, "0.0.0.0", () => {
   console.log("listening on port 443");
 });
 
+server.on("connection", function (socket) {
+  console.log("Got Remote Connection from address - " + socket.remoteAddress);
+  // Put your logic here
+});
 /*
   app.listen(80, () => {
     console.log("HTTP server running on port 80");
