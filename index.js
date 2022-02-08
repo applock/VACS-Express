@@ -1,5 +1,6 @@
 require("dotenv").config();
 const express = require("express");
+const ipfilter = require("express-ipfilter").IpFilter;
 const cors = require("cors");
 const morgan = require("morgan");
 const https = require("https");
@@ -12,6 +13,9 @@ var options = {
   cert: fs.readFileSync("./certs/ssl-cert.pem"),
 };
 
+// Allow the following IPs
+const ips = ["127.0.0.1"];
+
 // defining the Express app
 const app = express();
 
@@ -21,6 +25,9 @@ app.use(cors());
 app.use(morgan("combined"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+
+// IP Whitelisting security
+app.use(ipfilter(ips, { mode: "allow" }));
 
 // Router and routes
 const homeRouter = require("./routes/home");
