@@ -2,8 +2,8 @@
   "swagger": "2.0",
   "info": {
     "version": "1.0.0",
-    "title": "Start-Up India API",
-    "description": "Start-Up India API Documentation"
+    "title": "Vajra Access Control System API",
+    "description": "Vajra Access Control System API Documentation"
   },
   "host": "localhost:443",
   "basePath": "/",
@@ -17,13 +17,57 @@
     "application/json"
   ],
   "paths": {
-    "/v1/control/barrier": {
+    "/v1/currentstate/barrier/{barrierId}": {
       "get": {
         "tags": [
           "Barrier Controller"
         ],
-        "description": "Controls barrier gate",
-        "parameters": [],
+        "description": "Get barrier gate open/closed/online status",
+        "parameters": [
+          {
+            "name": "barrierId",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/v1/modifystate/barrier": {
+      "post": {
+        "tags": [
+          "Barrier Controller"
+        ],
+        "description": "Update barrier gate to open/closed status",
+        "parameters": [
+          {
+            "name": "obj",
+            "in": "body",
+            "description": "Schema for barrier control",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "barrierId": {
+                  "type": "string",
+                  "example": ""
+                },
+                "state": {
+                  "type": "string",
+                  "example": "Open"
+                }
+              },
+              "required": [
+                "barrierId",
+                "state"
+              ]
+            }
+          }
+        ],
         "responses": {
           "200": {
             "description": "OK"
