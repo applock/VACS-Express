@@ -16,6 +16,7 @@ router.post("/v1/modifystate/barrier", (req, resp) => {
         in: 'body',
         description: 'Schema for barrier control',
         schema: {
+          "$premiseId": "Default",
           "$barrierId": "",
           "$state": "Open"
         }
